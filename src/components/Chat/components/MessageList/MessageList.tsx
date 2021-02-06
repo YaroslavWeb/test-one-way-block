@@ -65,7 +65,7 @@ export function MessageList() {
                   ) : null}
                 </span>
                 <span className={className("message-lvl")}>
-                  {Math.ceil(Math.random() * 100)}
+                  {Math.ceil(Math.random() * 10)}
                 </span>
               </div>
             )}
