@@ -1,0 +1,42 @@
+@import "assets/styles/vars.scss";
+
+.tab-bar-item {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  height: 100%;
+  margin-right: 15px;
+  box-sizing: border-box;
+
+  color: $color-3;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  scroll-snap-align: start;
+  transition: color 0.2s linear;
+
+  cursor: pointer;
+
+  &_active {
+    color: $color-2;
+    pointer-events: none;
+  }
+
+  &__line {
+    display: flex;
+    justify-self: center;
+
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+
+    transition: width 0.2s linear;
+
+    &_active {
+      width: 100%;
+      border-bottom: 2px solid $color-3;
+    }
+  }
+}

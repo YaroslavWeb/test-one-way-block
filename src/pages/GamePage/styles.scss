@@ -1,0 +1,21 @@
+.game-page {
+  height: 100vh;
+  width: 100vw;
+
+  &__gui {
+    display: grid;
+    grid-template: 1fr 38% / 25% 1fr; //21
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+
+    &_full {
+      grid-template: 1fr 100% / 100% 1fr;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "assets/styles/vars.scss";
+
+.tab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  &__arrow {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+
+    &_left {
+      transform: rotate(90deg);
+    }
+
+    &_right {
+      transform: rotate(-90deg);
+      right: 0;
+    }
+  }
+}

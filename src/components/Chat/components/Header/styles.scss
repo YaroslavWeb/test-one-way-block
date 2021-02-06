@@ -1,0 +1,72 @@
+@import "assets/styles/vars.scss";
+
+.header-chat {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  height: 10%;
+  width: 100%;
+  background: rgba($color-1, 0.33);
+  color: $color-2;
+  font-size: 13px;
+  line-height: 15px;
+  text-transform: uppercase;
+
+  &_small {
+    height: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  &__language-selecter {
+    width: 42px;
+    display: flex;
+    margin: 0 10px;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+
+    > svg {
+      cursor: pointer;
+    }
+  }
+
+  &__language {
+    margin-right: 4px;
+    cursor: pointer;
+  }
+
+  &__list {
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    background: rgba($color-1, 0.33);
+    list-style-type: none;
+    z-index: 2;
+    cursor: pointer;
+
+    > li {
+      color: white;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.75;
+    }
+  }
+}
