@@ -1,9 +1,8 @@
 @import "assets/styles/vars.scss";
 
 .message-list {
-  display: grid;
   height: 80%;
-  transition: height 0.3s linear;
+  transition: all 0.3s linear;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -23,21 +22,30 @@
   }
 
   &__message {
+    display: flex;
+    align-items: center;
     position: relative;
-    width: max-content;
-    max-width: 224px;
-    padding: 11px 12px;
-    margin: 8px 10px;
-    background: $color-2;
-    border-radius: 20px 20px 20px 0px;
 
     &_personal {
-      background: $color-5;
-      border-radius: 20px 20px 0px 20px;
-      font-size: 13px;
-      line-height: 15px;
-      text-align: right;
-      color: #ffffff;
+      flex-direction: row-reverse;
+    }
+
+    &-form {
+      width: max-content;
+      max-width: 70%;
+      padding: 11px 12px;
+      margin: 8px 10px;
+      background: $color-2;
+      border-radius: 20px 20px 20px 0px;
+
+      &_personal {
+        background: $color-5;
+        border-radius: 20px 20px 0px 20px;
+        font-size: 13px;
+        line-height: 15px;
+        text-align: right;
+        color: #ffffff;
+      }
     }
 
     &-chars {
@@ -63,12 +71,15 @@
     }
 
     &-date {
-      position: absolute;
-      right: -38px;
-      top: 50%;
       font-size: 12px;
       line-height: 12px;
       color: rgba($color-2, 0.75);
+      margin-right: 10px;
+
+      &_personal {
+        margin-right: 0;
+        margin-left: 10px;
+      }
     }
   }
 }

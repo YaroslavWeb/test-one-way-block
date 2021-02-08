@@ -14,25 +14,19 @@ import "./styles.scss"
 const className = block("message-list")
 
 export function MessageList() {
-  const { state, reaction } = useOvermind()
+  const { state, actions } = useOvermind()
   const listRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() =>
-    reaction(
-      ({ chat }) => chat.messages,
-      (messages) => {
-        listRef.current?.scrollTo({
-          top: messages.length * 100000,
-          behavior: "smooth",
-        })
-      }
-    )
-  )
+  const handleScroll = () => {
+    if (listRef.current?.scrollTop === 0) {
+      actions.getPreviousMessages()
+    }
+  }
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll)
-  //   return () => window.removeEventListener("scroll", handleScroll)
-  // }, [])
+  useEffect(() => {
+    listRef.current?.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <div
@@ -46,7 +40,11 @@ export function MessageList() {
             personal: message.from === state.name,
           })}
         >
-          <div className={className("message-form")}>
+          <div
+            className={className("message-form", {
+              personal: message.from === state.name,
+            })}
+          >
             {message.from !== state.name && (
               <div className={className("message-chars")}>
                 {idx % 3 === 2 ? (
@@ -71,8 +69,11 @@ export function MessageList() {
             )}
             <div className={className("message-text")}>{message.text}</div>
           </div>
-
-          <div className={className("message-date")}>
+          <div
+            className={className("message-date", {
+              personal: message.from === state.name,
+            })}
+          >
             {moment(message.createdAt).format("HH:mm")}
           </div>
         </div>

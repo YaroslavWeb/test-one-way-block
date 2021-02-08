@@ -13,36 +13,37 @@ import "./styles.scss"
 const className = block("header-chat")
 
 const languges = ["RU", "EN", "ZHO"]
-
+const channels: IChannel[] = [
+  {
+    id: 1,
+    name: "Общий",
+    messages: [],
+  },
+  {
+    id: 2,
+    name: "Клан",
+    messages: [],
+  },
+  {
+    id: 3,
+    name: "Друзья",
+    messages: [],
+  },
+  {
+    id: 4,
+    name: "Новости",
+    messages: [],
+  },
+]
 export function Header() {
   const { state, actions } = useOvermind()
-  const [channels, setChannels] = useState<IChannel[]>([
-    {
-      id: 1,
-      name: "Общий",
-      messages: [],
-    },
-    {
-      id: 2,
-      name: "Клан",
-      messages: [],
-    },
-    {
-      id: 3,
-      name: "Друзья",
-      messages: [],
-    },
-    {
-      id: 4,
-      name: "Новости",
-      messages: [],
-    },
-  ])
 
   const [language, setLanguage] = useState<string>("RU")
   const [isList, setList] = useState<boolean>(false)
 
-  const toggleList = () => setList((prev) => !prev)
+  const toggleList = () => {
+    if (state.chat.size !== ChatSizeTypes.small) setList((prev) => !prev)
+  }
   const chooseLanguage = (value: string) => setLanguage(value)
 
   const handleHideChat = () => {

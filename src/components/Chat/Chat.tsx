@@ -25,7 +25,10 @@ export function Chat() {
 
   return (
     <div
-      className={className({ small: state.chat.size === ChatSizeTypes.small })}
+      className={className({
+        small: state.chat.size === ChatSizeTypes.small,
+        large: state.chat.size === ChatSizeTypes.large,
+      })}
     >
       <Header />
       <MessageList />

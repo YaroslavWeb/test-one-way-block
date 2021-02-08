@@ -4,7 +4,7 @@
 
   &__gui {
     display: grid;
-    grid-template: 1fr 38% / 25% 1fr; //21
+    grid-template: 1fr 38% / 21% 1fr;
 
     position: absolute;
     top: 0;
@@ -13,9 +13,5 @@
     width: 100%;
     padding: 20px 15px;
     box-sizing: border-box;
-
-    &_full {
-      grid-template: 1fr 100% / 100% 1fr;
-    }
   }
 }

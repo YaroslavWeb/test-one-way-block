@@ -42,7 +42,13 @@ export const sendMessage: Action<string> = ({ state }, text) => {
 }
 
 export const getMessage: Action<IDataMessage> = ({ state }, message) => {
-  console.warn("getMessage", message)
+  console.log("getMessage", message)
 
   state.chat.messages.push(message)
+}
+
+export const getPreviousMessages: AsyncAction = async ({ state }) => {
+  const messages = await ChatSocket.fetchMessages(state.chat.messages.length, 5)
+
+  state.chat.messages.unshift(...messages.reverse())
 }

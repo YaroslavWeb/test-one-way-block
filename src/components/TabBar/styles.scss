@@ -29,6 +29,7 @@
   &__arrow {
     width: 12px;
     height: 12px;
+    transition: opacity 0.3s linear;
     cursor: pointer;
 
     &_left {
@@ -38,6 +39,11 @@
     &_right {
       transform: rotate(-90deg);
       right: 0;
+    }
+
+    &_hidden {
+      opacity: 0;
+      pointer-events: none;
     }
   }
 }

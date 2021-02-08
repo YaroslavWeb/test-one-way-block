@@ -18,6 +18,14 @@ export function FormMessage() {
     setTextInput("")
     actions.sendMessage(textInput)
   }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setTextInput("")
+      actions.sendMessage(textInput)
+    }
+  }
+
   return (
     <div
       className={className({ small: state.chat.size === ChatSizeTypes.small })}
@@ -25,6 +33,7 @@ export function FormMessage() {
       <input
         className={className("custom-input")}
         placeholder="Напишите сообщение"
+        onKeyPress={handleKeyPress}
         maxLength={200}
         type="text"
         value={textInput}
