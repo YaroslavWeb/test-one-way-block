@@ -1,10 +1,6 @@
 # Тестовое задание One Way Block
 
----
-
 ## На должность React Developer
-
----
 
 ## Стек:
 
@@ -13,6 +9,7 @@
 - Overmind - стейт менеджер.
 - SCSS.
 - BEM-CN - [пакет](https://www.npmjs.com/package/bem-cn).
+- Moment
 
 ---
 
